@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- React -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+
+    <!-- ReactDOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <style>
+        #heading{
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        // const h1 = React.createElement("h1",{id : "heading"},"HelloWorld");
+        // const Root = ReactDOM.createRoot(document.getElementById("root"));
+        // Root.render(h1)
+
+        // const div = React.createElement("div",{id : "parent"},
+        //     React.createElement("div",{id:"child"},React.createElement("h1",{},"HelloWOrld") )
+        // );
+        // const Root = ReactDOM.createRoot(document.getElementById("root"));
+        // Root.render(div)
+
+        // const div = React.createElement("div",{id : "parent"},
+        //     React.createElement("div",{id:"child"},[
+        //         React.createElement("h1",{id:"heading1"},"HelloWorld"),
+        //         React.createElement("h1",{id:"heading2"},"Learn React with Ease")
+        //     ] )
+        // );
+        // const Root = ReactDOM.createRoot(document.getElementById("root"));
+        // Root.render(div)
+
+        // const div = React.createElement("div",{id : "parent"},
+        //     React.createElement("div",{id:"child"},
+        //         React.createElement("h1",{id:"heading1"},"HelloWorld"),
+        //         React.createElement("h1",{id:"heading2"},"Learn React with Ease")
+        //      )
+        // );
+        // const Root = ReactDOM.createRoot(document.getElementById("root"));
+        // Root.render(div)
+
+        const div = React.createElement("div",{id : "parent"},
+            React.createElement("div",{id:"child"},
+                React.createElement("h1",{id:"heading1"},"HelloWorld"),
+                React.createElement("h1",{id:"heading2"},"Learn React with Ease")
+             ),
+             React.createElement("div",{id:"child2"},
+                React.createElement("h1",{id:"heading3"},"HelloWorld"),
+                React.createElement("h1",{id:"heading4"},"Learn React with Ease")
+             )
+        );
+        const Root = ReactDOM.createRoot(document.getElementById("root"));
+        Root.render(div)
+
+
+
+
+    </script>
+</body>
+</html>
