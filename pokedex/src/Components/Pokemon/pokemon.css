@@ -1,0 +1,13 @@
+.pokebox{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width:200px;
+    align-items: center;
+    justify-content: center;
+}
+.pokebox img{
+    height: 100px;
+    width: 100px;
+}
