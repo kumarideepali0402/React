@@ -2,44 +2,34 @@ import { useState } from "react"
 import ToDo from "../Todo/TODO"
 import { useContext } from "react";
 import ToDoContext from "../../Context/ToDoContext";
+import ToDoDispatchContext from "../../Context/ToDoDispatchContext";
 export default function ToDoList() {
-    const {list, setList} = useContext(ToDoContext)
+    const {list} = useContext(ToDoContext)
+    const {dispatch} =useContext(ToDoDispatchContext);
     
     return(
 
         <div>
             {list.length > 0 && list.map((t)=><ToDo 
                                                 key ={t.id} 
-                                                id={t.id}  
+                                                id={t.id}
+                                                  
                                                 ToDoData={t.todo}
                                                 isFinished={t.finished}
-                                                changeFinished = {(isFinished)=>{
-                                                    console.log("isFInished:",isFinished );
+                                                changeFinished = {(todo,isFinished)=>{
+                                                    dispatch({type: 'finish_todo', payload : {todo, isFinished : isFinished}})
                                                     
-                                                    const updatedList = list.map((todo)=>{
-                                                        if(t.id == todo.id){
-                                                            t.finished = isFinished;
-                                                        }
-                                                        return todo;
-                                                    })
-                                                    setList(updatedList)
 
                                                 }}
-                                                onEdit={(toDoText)=>{
+                                                onEdit={(todo,toDoText)=>{
                                                     
                                                     
-                                                    const updatedList = list.map((todo)=>{
-                                                        if(t.id == todo.id){
-                                                            todo.todo = toDoText;
-                                                        }
-                                                        return todo;
-                                                    })
-                                                    setList(updatedList)
+                                                        dispatch({type: 'edit_todo', payload : {todo, toDoText}})
 
                                                 }}
-                                                onDelete = {()=>{
-                                                    const updatedList = list.filter((todo)=>t.id != todo.id)
-                                                    setList(updatedList);
+                                                onDelete = {(todo)=>{
+                                                    dispatch({type: 'delete_todo', payload : {todo}})
+                                                    
                                                 }}
                                                 >
                                                 
